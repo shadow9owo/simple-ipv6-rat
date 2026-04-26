@@ -1,0 +1,11 @@
+C:\Users\shadowdev\source\repos\endpoint\endpoint\bin\Debug\endpoint.exe.config
+C:\Users\shadowdev\source\repos\endpoint\endpoint\bin\Debug\endpoint.exe
+C:\Users\shadowdev\source\repos\endpoint\endpoint\bin\Debug\endpoint.pdb
+C:\Users\shadowdev\source\repos\endpoint\endpoint\obj\Debug\endpoint.csproj.AssemblyReference.cache
+C:\Users\shadowdev\source\repos\endpoint\endpoint\obj\Debug\endpoint.csproj.CoreCompileInputs.cache
+C:\Users\shadowdev\source\repos\endpoint\endpoint\obj\Debug\endpoint.exe
+C:\Users\shadowdev\source\repos\endpoint\endpoint\obj\Debug\endpoint.pdb
+C:\Users\shadowdev\source\repos\endpoint\endpoint\bin\Debug\Newtonsoft.Json.dll
+C:\Users\shadowdev\source\repos\endpoint\endpoint\bin\Debug\Newtonsoft.Json.xml
+C:\Users\shadowdev\source\repos\endpoint\endpoint\obj\Debug\endpoint.exe.config
+C:\Users\shadowdev\source\repos\endpoint\endpoint\obj\Debug\endpoint.csproj.Up2Date

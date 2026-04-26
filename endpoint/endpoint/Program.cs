@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.WebSockets;
@@ -12,6 +13,8 @@ namespace endpoint
 
     internal class Program
     {
+        static List<byte> tempbuffer = new List<byte>();
+        static string tmpval = "";
         static async Task Main(string[] args)
         {
             var listener = new HttpListener();
@@ -136,6 +139,19 @@ namespace endpoint
                 }
             }else
             {
+                switch (packet.pt)
+                {
+                    case Data.PacketType.recv:
+                        tempbuffer.AddRange(packet.buffer);
+                        break;
+                    case Data.PacketType.endofdwnld:
+                        tempbuffer.AddRange(packet.buffer);
+                        File.WriteAllBytes(tmpval.Split(' ')[1], tempbuffer.ToArray());
+                        Console.WriteLine("download finished");
+                        tempbuffer.Clear();
+                        tmpval = "";
+                        break;
+                }
                 Console.WriteLine(packet.input);
             }
         }
@@ -158,7 +174,8 @@ namespace endpoint
                     case "1":
                         packet.pt = Data.PacketType.download;
                         Console.Write("file path: ");
-                        packet.input = await Task.Run(() => Console.ReadLine());
+                        await Task.Run(() => tmpval = Console.ReadLine());
+                        packet.input = tmpval.Split(' ')[0];
                         break;
 
                     case "2":
