@@ -1,19 +1,57 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Net.WebSockets;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Diagnostics;
-using System.IO;
 
 namespace test1
 {
     internal class Program
     {
+        public static byte[] GetResourceBytes(string path)
+        {
+            var asm = Assembly.GetExecutingAssembly();
+
+            var name = asm.GetManifestResourceNames()
+                          .FirstOrDefault(n => n.EndsWith(path));
+
+            if (name == null)
+            {
+                throw new FileNotFoundException();
+            }
+
+            using (var stream = asm.GetManifestResourceStream(name))
+            {
+                if (stream == null)
+                {
+                    throw new AccessViolationException();
+                }
+
+                using (var ms = new MemoryStream())
+                {
+                    stream.CopyTo(ms);
+                    return ms.ToArray();
+                }
+            }
+        }
         public static ClientWebSocket ws = new ClientWebSocket();
         static async Task Main()
         {
+            Config conf = JsonConvert.DeserializeObject<Config>(Encoding.Default.GetString(GetResourceBytes("test1.emb.config.json")));
+
+            if (string.IsNullOrEmpty(conf.ip) || string.IsNullOrEmpty(conf.port))
+            {
+                Console.WriteLine("please define config values");
+                Environment.Exit(-1);
+            }
+
+            Data.endpoint = new Uri($"ws://[{conf.ip}]:{conf.port}");
+
             try
             {
                 await ws.ConnectAsync(Data.endpoint, CancellationToken.None);

@@ -2,27 +2,63 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.WebSockets;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace endpoint
 {
-
     internal class Program
     {
+        public static byte[] GetResourceBytes(string path)
+        {
+            var asm = Assembly.GetExecutingAssembly();
+
+            var name = asm.GetManifestResourceNames()
+                          .FirstOrDefault(n => n.EndsWith(path));
+
+            if (name == null)
+            {
+                throw new FileNotFoundException();
+            }
+
+            using (var stream = asm.GetManifestResourceStream(name))
+            {
+                if (stream == null)
+                {
+                    throw new AccessViolationException();
+                }
+
+                using (var ms = new MemoryStream())
+                {
+                    stream.CopyTo(ms);
+                    return ms.ToArray();
+                }
+            }
+        }
+
         static List<byte> tempbuffer = new List<byte>();
         static string tmpval = "";
         static async Task Main(string[] args)
         {
+            Data.Config conf = JsonConvert.DeserializeObject<Data.Config>(Encoding.Default.GetString(GetResourceBytes("endpoint.emb.config.json")));
+
+            if (string.IsNullOrEmpty(conf.ip) || string.IsNullOrEmpty(conf.port))
+            {
+                Console.WriteLine("please define config values");
+                Environment.Exit(-1);
+            }
+
             var listener = new HttpListener();
 
-            listener.Prefixes.Add("http://+:8080/");
+            listener.Prefixes.Add($"http://+:{conf.port}/");
 
             listener.Start();
-            Console.WriteLine("listening on ws://[::]:8080/");
+            Console.WriteLine($"listening on ws://[::]:{conf.port}/");
 
             while (true)
             {

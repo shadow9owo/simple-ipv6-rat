@@ -26,5 +26,11 @@ namespace endpoint
             public string input { get; set; }
             public byte[] buffer { get; set; }
         }
+
+        public class Config
+        {
+            public string ip { get; set; }
+            public string port { get; set; }
+        }
     }
 }

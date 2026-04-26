@@ -1,0 +1,10 @@
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\endpoint\endpoint\bin\Release\endpoint.exe.config
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\endpoint\endpoint\bin\Release\endpoint.exe
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\endpoint\endpoint\bin\Release\endpoint.pdb
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\endpoint\endpoint\bin\Release\Newtonsoft.Json.dll
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\endpoint\endpoint\bin\Release\Newtonsoft.Json.xml
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\endpoint\endpoint\obj\Release\endpoint.csproj.AssemblyReference.cache
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\endpoint\endpoint\obj\Release\endpoint.csproj.CoreCompileInputs.cache
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\endpoint\endpoint\obj\Release\endpoint.csproj.Up2Date
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\endpoint\endpoint\obj\Release\endpoint.exe
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\endpoint\endpoint\obj\Release\endpoint.pdb

@@ -1,0 +1,10 @@
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\test1\test1\bin\Release\test1.exe.config
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\test1\test1\bin\Release\test1.exe
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\test1\test1\bin\Release\test1.pdb
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\test1\test1\bin\Release\Newtonsoft.Json.dll
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\test1\test1\bin\Release\Newtonsoft.Json.xml
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\test1\test1\obj\Release\test1.csproj.AssemblyReference.cache
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\test1\test1\obj\Release\test1.csproj.CoreCompileInputs.cache
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\test1\test1\obj\Release\test1.csproj.Up2Date
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\test1\test1\obj\Release\test1.exe
+C:\Users\shadowdev\Documents\GitHub\simple-ipv6-rat\test1\test1\obj\Release\test1.pdb
