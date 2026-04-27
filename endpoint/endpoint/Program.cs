@@ -211,6 +211,11 @@ namespace endpoint
                         packet.pt = Data.PacketType.download;
                         Console.Write("file path: ");
                         await Task.Run(() => tmpval = Console.ReadLine());
+                        if (tmpval.Split(' ').Length < 2) 
+                        {
+                            Console.WriteLine("requires atleast 2 arguments");
+                            break; 
+                        }
                         packet.input = tmpval.Split(' ')[0];
                         break;
 
